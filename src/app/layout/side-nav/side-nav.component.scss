@@ -1,0 +1,34 @@
+@use 'breakpoints' as bp;
+
+.nav-items {
+    padding-top: 10px;
+
+    .nav-item {
+        // padding: 25px 50px;
+        padding: 20px 23px;
+        cursor: pointer;
+
+        // @media only screen and (max-width: 1300px) {
+        @media (max-width: bp.$tablet) {
+            padding: 15px 20px;
+        }
+
+        &:hover {
+            background-color: rgb(1, 38, 69);
+        }
+
+        fa-icon {
+            margin-right: 20px;
+            font-size: 22px;
+        }
+
+        span {
+            display: inline;
+
+            // @media only screen and (max-width: 1300px) {
+            @media (max-width: bp.$tablet) {
+                display: none;
+            }
+        }
+    }
+}

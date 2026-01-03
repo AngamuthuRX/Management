@@ -1,0 +1,33 @@
+// src/styles/_colors.scss
+
+// 1. Brand Colors
+$primary: #007bff;
+$primary-light: #e7f1ff;
+$primary-dark: #0056b3;
+
+$secondary: #6c757d;
+$accent: #ffc107;
+
+// 2. Grayscale / Neutrals
+$white: #ffffff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-500: #6c757d;
+$gray-800: #343a40;
+$black: #000000;
+
+// 3. Status Colors
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+
+// 4. Backgrounds & Borders
+$bg-body: $gray-100;
+$border-color: $gray-200;
+
+// 5. Text Colors
+$text-primary: $gray-800;
+
+// 6. Additional Colors
+$light-gray: #d8d8d8;

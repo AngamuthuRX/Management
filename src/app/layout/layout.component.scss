@@ -1,0 +1,80 @@
+// @use './../../styles/breakpoints' as bp;
+
+// .main-container {
+//     display: flex;
+//     overflow: hidden;
+
+//     .side-nav {
+//         width: 230px;
+//         min-width: 230px;
+//         min-height: calc(100vh - 70px);
+//         background-color: #113c60;
+//         color: #fff;
+//         box-shadow: 5px 5px 5px #939393;
+
+//         // @media only screen and (max-width: 1300px) {
+//         @media (max-width: bp.$tablet) {
+//             width: 70px;
+//             min-width: 70px;
+//         }
+//     }
+
+//     .main {
+//         padding: 30px;
+//         flex: 1;
+//         overflow-y: auto;
+//     }
+// }
+
+// .container {
+//     display: grid;
+//     overflow: hidden;
+//     height: 100vh;
+// }
+
+@use '_breakpoints' as bp;
+
+// 1. The wrapper must be exactly the height of the screen
+.container {
+    display: flex;       /* Changed from grid to flex for easier sub-layout */
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;    /* Lock the main window */
+}
+
+.main-container {
+    display: flex;
+    flex: 1;            /* Take up all space below the header (if any) */
+    overflow: hidden;    /* Keep the wrapper itself from scrolling */
+
+    .side-nav {
+        width: 230px;
+        min-width: 230px;
+        height: 100%;    /* Fill the height of main-container */
+        background-color: #113c60;
+        color: #fff;
+        box-shadow: 5px 0px 5px #939393; // Fixed shadow to only right side
+
+        @media (max-width: bp.$tablet) {
+            width: 70px;
+            min-width: 70px;
+        }
+    }
+
+    .main {
+        flex: 1;
+        padding: 30px;
+        overflow-y: auto;   /* THIS is the only place scrolling happens */
+        height: 100%;       /* Ensure it fills the parent height */
+        background-color: #f9f9f9; // Optional: distinct background
+        
+        /* Custom Scrollbar for the Dashboard area */
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+    }
+}

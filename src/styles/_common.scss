@@ -1,0 +1,69 @@
+@use '_color' as c;
+
+//login and register card styles with glassmorphism effect start \\
+
+.auth-card {
+    max-width: 380px;
+    margin: 8rem auto; // Increased margin for better centering
+    padding: 2.5rem;
+    border-radius: 16px;
+    
+    // Glassmorphism Core Properties
+    background: rgba(255, 255, 255, 0.15); // Semi-transparent white
+    backdrop-filter: blur(12px);           // Blurs the background image behind the card
+    -webkit-backdrop-filter: blur(12px);   // Safari support
+    
+    // Glass Border & Shadow
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+    color: #ffffff; // Text color needs to be white to stand out
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+// Styling inputs to match the glass look
+input {
+    width: 100%;
+    margin-bottom: 1.2rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    &:focus {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: c.$primary;
+    }
+}
+
+//login and register card styles with glassmorphism effect end \\
+
+// Button styles start \\
+.button-primary {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: none;
+    background-color: c.$primary;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        background-color: c.$primary-dark;
+        transform: translateY(-2px);
+    }
+}
+// Button styles end \\

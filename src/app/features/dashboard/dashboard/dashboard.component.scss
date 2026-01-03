@@ -1,0 +1,89 @@
+// .grid {
+//     display: grid;
+//     gap: 50px;
+//     // grid-template-columns: auto auto auto;
+//     grid-template-columns: repeat(4, minmax(250px, 1fr));
+//     padding: 10px;
+// }
+
+// .card {
+//     background: #ffffff;
+//     padding: 16px;
+//     border-radius: 12px;
+//     font-size: 30px;
+//     text-align: center;
+// }
+
+// .card:hover {
+//     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.50);
+// }
+
+// .card-header {
+//     font-size: 1.25rem;
+//     font-weight: 600;
+//     margin-bottom: 12px;
+// }
+
+// .card-value {
+//     font-size: 2rem;
+//     font-weight: 700;
+//     color: #333333;
+// }
+
+
+// @media (max-width: 768px) {
+//   .grid {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+// }
+
+// @media (max-width: 480px) {
+//   .grid {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+@use '_breakpoints' as bp;
+
+.dashboard-grid {
+    display: grid;
+    gap: 20px;
+
+    /* This creates as many columns as fit, at least 300px wide each */
+    /* If the screen is smaller than 300px, it automatically stacks 1 per row */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    /* Custom Scrollbar specifically for the dashboard */
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px;
+    }
+}
+
+/* Mobile specific tweaks if needed */
+// @media (max-width: 600px) {
+@media (max-width: bp.$tablet) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        /* Force one by one on very small screens */
+        padding: 10px;
+    }
+}
+
+.card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+}

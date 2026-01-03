@@ -1,0 +1,62 @@
+<!-- <div class="grid">
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Total Users</h3>
+        </div>
+        <div class="card-value">1,254</div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Active Projects</h3>
+        </div>
+        <div class="card-value">42</div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Revenue Overview</h3>
+            <div class="card-value">1,254</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Total Users</h3>
+        </div>
+        <div class="card-value">1,254</div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Total Users</h3>
+        </div>
+        <div class="card-value">1,254</div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Total Users</h3>
+        </div>
+        <div class="card-value">1,254</div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Total Users</h3>
+        </div>
+        <div class="card-value">1,254</div>
+    </div>
+
+</div> -->
+
+
+<div class="dashboard-grid" id="container">
+    <span *ngFor="let item of widgets" class="card" [style.background-color]="item.color">
+        <div class="card-header">
+            <h3>{{item.title}}</h3>
+        </div>
+        <div class="card-value">{{item.value}}</div>
+    </span>
+</div>

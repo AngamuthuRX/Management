@@ -1,0 +1,21 @@
+.grid-container {
+    display: grid;
+    // auto-fit: fills the row with as many columns as possible
+    // minmax(300px, 1fr): items are at least 300px, but grow to fill space
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem 1.5rem; // Row gap 1rem, Column gap 1.5rem
+    width: 100%;
+    padding: 1.5rem;
+
+    // Force Material fields to take up full width of the grid cell
+    mat-form-field {
+        width: 100%;
+    }
+
+    // Large screen specific: spanning multiple columns
+    .span-full {
+        @media (min-width: 768px) {
+            grid-column: 1 / -1; // Spans all available columns
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<div class="nav-items">
+  <!-- <div class="nav-item">
+    <fa-icon [icon]="faDashboard"></fa-icon>
+    <span>Dashboard</span>
+  </div> > -->
+  <span *ngFor="let item of sideMenuItems">
+    <div class="nav-item" (click)="onSelectMenu(item)" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+      <fa-icon [icon]="getIcon(item.icon)"></fa-icon>
+      <span>{{item.label}}</span>
+    </div>
+  </span>
+</div>
