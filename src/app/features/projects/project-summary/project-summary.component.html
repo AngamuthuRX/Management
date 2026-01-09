@@ -1,1 +1,72 @@
-<app-grid></app-grid>
+<div class="core-screen-container">
+    <div class="page-header">
+        <!-- LEFT -->
+        <div class="header-left">
+            <h2>Projects</h2>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="header-right">
+            <button mat-icon-button>
+                <i class="fas fa-filter"></i>
+            </button>
+
+            <button mat-icon-button>
+                <i class="fas fa-columns"></i>
+            </button>
+
+            <button mat-icon-button>
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-container">
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+
+            <mat-tab label="List">
+                <ng-template matTabContent>
+                    <app-grid-accordion
+                        [dataSource]="accordionData"
+                        [tableConfig]="accordionTableConfig">
+                    </app-grid-accordion>
+                </ng-template>
+            </mat-tab>
+        
+            <mat-tab label="Grid">
+                <ng-template matTabContent>
+                    <app-grid
+                        [config]="gridConfig"
+                        [data]="gridData"
+                        [totalRecords]="gridTotalCount"
+                        [loading]="isGridLoading"
+                        (pageChange)="onPageChange($event)"
+                        (sortChange)="onSortChange($event)"
+                        (actionClick)="onAction($event)">
+                    </app-grid>
+                </ng-template>
+            </mat-tab>
+        
+            <mat-tab label="Board"> 
+                <ng-template matTabContent>
+                    <app-task-board></app-task-board>
+                </ng-template>
+            </mat-tab>
+        
+        </mat-tab-group>        
+        <!-- <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+            <mat-tab *ngFor="let tab of tabsList" [label]="tab.label">
+                <ng-template matTabContent>
+                    <ng-container *ngIf="isComponent(tab.component); then comp else text"></ng-container>
+
+                    <ng-template #comp>
+                        <ng-container *ngComponentOutlet="tab.component"></ng-container>
+                    </ng-template>
+
+                    <ng-template #text>
+                        {{ tab.component }}
+                    </ng-template>
+                </ng-template>
+            </mat-tab>
+        </mat-tab-group> -->
+    </div>
+</div>

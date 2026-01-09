@@ -4,6 +4,7 @@ import { ProjectSummaryComponent } from './project-summary/project-summary.compo
 import { ProjectRoutingModule } from './project-routing.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 
@@ -14,6 +15,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     ProjectRoutingModule,
+    MatTabsModule,
     RouterModule,
     SharedModule
   ]

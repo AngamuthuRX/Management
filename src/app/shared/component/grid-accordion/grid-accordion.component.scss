@@ -1,0 +1,75 @@
+table {
+    width: 100%;
+    table-layout: fixed;
+    /* Crucial for fixed widths to work strictly */
+}
+
+/* Ensure text doesn't break layout if it's too long for the width */
+th,
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.example-detail-row {
+    height: 0;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.inner-table-container {
+    width: 100%;
+    padding: 0px 10px;
+    /* Padding creates the 'indented' look for the sub-grid */
+    box-sizing: border-box;
+}
+
+.inner-table {
+    width: auto;
+    /* Let the inner table be sized by its column widths */
+    background-color: #f9f9f9;
+}
+
+.mat-column-expandedDetail {
+    padding: 0 !important;
+}
+
+.example-element-row:hover {
+    background: #190505;
+    cursor: pointer;
+}
+
+// Header size override css \\
+tr.mdc-data-table__header-row {
+    height: 35px;
+}
+
+
+.mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
+
+
+.inner-table {
+    .mat-mdc-row:hover .mat-mdc-cell {
+        font-weight: bold;
+    }
+}
+
+.example-element-row {
+    &:hover {
+        td {
+            font-weight: bold;
+        }
+    }
+}

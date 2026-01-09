@@ -7,16 +7,16 @@
     margin: 8rem auto; // Increased margin for better centering
     padding: 2.5rem;
     border-radius: 16px;
-    
+
     // Glassmorphism Core Properties
     background: rgba(255, 255, 255, 0.15); // Semi-transparent white
-    backdrop-filter: blur(12px);           // Blurs the background image behind the card
-    -webkit-backdrop-filter: blur(12px);   // Safari support
-    
+    backdrop-filter: blur(12px); // Blurs the background image behind the card
+    -webkit-backdrop-filter: blur(12px); // Safari support
+
     // Glass Border & Shadow
-    border: 1px solid rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    
+
     color: #ffffff; // Text color needs to be white to stand out
 }
 
@@ -50,7 +50,7 @@ input {
 //login and register card styles with glassmorphism effect end \\
 
 // Button styles start \\
-.button-primary {
+.auth-card .button-primary {
     width: 100%;
     padding: 0.8rem;
     border-radius: 8px;
@@ -65,5 +65,11 @@ input {
         background-color: c.$primary-dark;
         transform: translateY(-2px);
     }
+
+    &:disabled {
+        background: #9fa8da;
+        cursor: not-allowed;
+    }
 }
+
 // Button styles end \\

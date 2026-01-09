@@ -3,7 +3,7 @@
     <app-header></app-header>
   </div>
   <div class="main-container">
-    <div class="side-nav">
+    <div class="side-nav" [class.side-nav-open]="isMenuOpen$ | async">
       <app-side-nav></app-side-nav>
     </div>
     <div class="main">

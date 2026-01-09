@@ -6,6 +6,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserModule } from '@angular/platform-browser';
 import { LayoutComponent } from './layout.component';
 import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
     declarations: [
@@ -16,6 +19,9 @@ import { RouterModule } from '@angular/router';
     imports: [
         BrowserModule,
         RouterModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatButtonModule,
         FontAwesomeModule
     ],
     providers: [],

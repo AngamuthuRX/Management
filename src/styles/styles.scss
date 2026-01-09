@@ -5,6 +5,7 @@
 @import "_color";
 @import "_common";
 @import "_grid";
+@import "_theme";
 
 * {
   margin: 0;
@@ -13,53 +14,96 @@
 }
 
 body {
-  font-family: "Exo", sans-serif;
+  // font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  // font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family: "Open Sans", sans-serif;
   background-color: $light-gray;
   overflow-x: hidden;
   margin: 0px;
 }
-
 
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  // background: #f1f1f1;
+  background: $anti-flash-white;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a6d5fb;
+  background: $soft-blue;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #012645;
+  background: $midnight-navy;
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #a6d5fb #f1f1f1;
-}
+// * {
+//   scrollbar-width: thin;
+//   scrollbar-color: #a6d5fb #f1f1f1;
+// }
 
 html {
-  font-size: 16px;
+  font-size: 14px;
   // background-color: $white;
 
   @include tablet {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   @include mobile {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
 .auth-background {
-  // This ensures the image covers the entire viewport
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('/assets/images/auth-bg.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   width: 100%;
   padding-top: 1px;
+}
+
+.core-screen-container {
+  background-color: $white;
+  width: 100%;
+
+  // LEFT AND RIGHT PADDING FOR CORE SCREENS
+  .header-left h2 {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  // LEFT AND RIGHT PADDING FOR CORE SCREENS
+  .header-right {
+    display: flex;
+    gap: 8px;
+
+    button {
+      border-radius: 8px;
+    }
+
+    i {
+      font-size: 16px;
+      color: #333;
+    }
+  }
+
+  // PAGE HEADER AND CONTAINER STYLES
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 2px solid $platinum-grey;
+  }
+
+  // PAGE CONTAINER STYLES
+  .page-container {
+    padding: 16px;
+    border-bottom: 2px solid $platinum-grey;
+    overflow: auto;
+  }
 }

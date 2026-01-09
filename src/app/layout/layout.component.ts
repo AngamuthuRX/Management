@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LayoutService } from './layout.service';
 
 @Component({
   selector: 'app-layout',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class LayoutComponent {
 
+  public isMenuOpen$ = this.layoutService.menuOpen$;
+
+  constructor(private layoutService: LayoutService) { }
 }

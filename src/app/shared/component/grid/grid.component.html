@@ -1,1 +1,39 @@
-<p>grid works!</p>
+<div class="grid-wrapper">
+
+    <table mat-table [dataSource]="data" matSort (matSortChange)="onSortChange($event)" class="common-grid mat-elevation-z2">
+
+        <!-- Dynamic Columns -->
+        <ng-container *ngFor="let col of config.columns" [matColumnDef]="col.key">
+
+            <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="!col.sortable" [style.width]="col.width"> -->
+            <th mat-header-cell *matHeaderCellDef mat-sort-header [style.width]="col.width"
+                [attr.disabled]="col?.sortable ? true : null">
+                {{ col.header }}
+            </th>
+
+            <td mat-cell *matCellDef="let row" (click)="onRowActionClick(col)">
+                <ng-container [ngSwitch]="col.type">
+                    <span *ngSwitchDefault>{{ row[col.key] }}</span>
+                    <span *ngSwitchCase="'date'">
+                        {{ row[col.key] | date:'dd-MM-yyyy' }}
+                    </span>
+                </ng-container>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <!-- Paginator -->
+    <mat-paginator 
+        [length]="totalRecords"
+        [disabled]="false"
+        [showFirstLastButtons]="false"
+        [hidePageSize]="false"
+        [pageSize]="config.pageSize || 10"
+        [pageSizeOptions]="config.pageSizeOptions || [5,10,25,50]" 
+        (page)="onPageChange($event)">
+    </mat-paginator>
+
+</div>

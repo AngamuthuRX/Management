@@ -1,0 +1,25 @@
+.grid-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+table {
+    min-width: 900px;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+mat-paginator {
+    margin-top: 10px;
+}
+
+
+// Row color on hover
+::ng-deep .common-grid .mat-mdc-row:hover {
+  background-color: red !important;
+  cursor: pointer;
+}

@@ -1,9 +1,44 @@
 <div class="auth-card">
-    <h2>Login</h2>
-    <form [formGroup]="form" (ngSubmit)="submit()">
-        <input formControlName="email" placeholder="Email" />
-        <input type="password" formControlName="password" placeholder="Password" />
-        <button class="button-primary" type="submit">Login</button>
-    </form>
-    <a routerLink="/auth/register">Create account</a>
+
+
+    <span *ngIf="!isLoggedIn">
+        <h2>Login</h2>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <input formControlName="email" placeholder="Email" />
+            <input type="password" formControlName="password" placeholder="Password" />
+            <button class="button-primary" type="submit" [disabled]="form.invalid">Login</button>
+        </form>
+        <a routerLink="/auth/register">Create account</a>
+    </span>
+
+
+    <span *ngIf="isLoggedIn">
+        <h2>Verify OTP</h2>
+        <p class="subtitle">
+            Enter the 6-digit OTP sent to your registered mobile number
+        </p>
+
+        <form [formGroup]="otpForm" (ngSubmit)="verifyOtp()">
+            <div class="otp-inputs" formArrayName="otp">
+                <input #otpInput *ngFor="let ctrl of otpControls; let i = index" type="text" maxlength="1"
+                    class="otp-box" [formControlName]="i" (input)="onInput($event, i)"
+                    (keydown.backspace)="onBackspace(i)" />
+            </div>
+
+            <button type="submit" class="button-primary" [disabled]="otpForm.invalid">
+                Verify OTP
+            </button>
+        </form>
+
+        <div class="resend-section">
+            <span *ngIf="!canResend">
+                Resend OTP in <b>{{ timer }}s</b>
+            </span>
+            <span *ngIf="canResend">
+                <span>Didn't receive OTP? </span>
+                <button class="link-btn" (click)="resendOtp()">Resend</button>
+            </span>
+        </div>
+
+    </span>
 </div>

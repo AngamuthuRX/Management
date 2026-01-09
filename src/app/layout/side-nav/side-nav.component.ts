@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import * as Icons from '@fortawesome/free-solid-svg-icons';
 import { CONFIG } from 'src/app/shared/constant/side-menu';
+import { LayoutService } from '../layout.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -13,7 +14,11 @@ export class SideNavComponent implements OnInit {
 
   public sideMenuItems: any[] = [];
 
-  constructor(private router: Router) {
+  public isMenuOpen = false;
+
+  public isMenuOpen$ = this.layoutService.menuOpen$;
+
+  constructor(private router: Router, private layoutService: LayoutService) {
     this.sideMenuItems = CONFIG.SIDE_MENU;
   }
 

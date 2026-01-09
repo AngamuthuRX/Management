@@ -1,6 +1,6 @@
 .header {
     height: 70px;
-    padding: 20px 50px;
+    padding: 20px 25px;
     background-color: rgb(1, 38, 69);
     color: #fff;
     display: flex;
@@ -30,4 +30,17 @@
             font-weight: bold;
         }
     }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-icon {
+    height: 20px !important;
+}
+
+.menu-icon {
+    margin-right: 10px;
+    cursor: pointer;
 }

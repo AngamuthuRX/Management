@@ -1,3 +1,40 @@
 a {
     color: white;
 }
+
+// OTP Input Styles
+.subtitle {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.otp-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.otp-box {
+    width: 45px;
+    height: 50px;
+    text-align: center;
+}
+
+.resend-section {
+    margin-top: 15px;
+}
+
+.link-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+// .button-primary {
+//     &:disabled {
+//         background: #9fa8da;
+//         cursor: not-allowed;
+//     }
+// }

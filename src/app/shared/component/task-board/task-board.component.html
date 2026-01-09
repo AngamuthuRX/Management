@@ -1,0 +1,28 @@
+<div class="board-container" cdkDropListGroup>
+  
+  <div class="column-container" *ngFor="let list of [
+    {label: 'New', data: todo},
+    {label: 'In Progress', data: inProgress},
+    {label: 'Active', data: active},
+    {label: 'Completed', data: completed}
+  ]">
+    <h3>{{ list.label }}</h3>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="list.data"
+      class="task-list"
+      (cdkDropListDropped)="drop($event)">
+      
+      <div class="task-card" *ngFor="let item of list.data" cdkDrag>
+        <div class="card-header">
+          <span class="priority-tag" [attr.data-priority]="item.priority"></span>
+          <strong>{{ item.title }}</strong>
+        </div>
+        <p>{{ item.description }}</p>
+        <div class="card-placeholder" *cdkDragPlaceholder></div>
+      </div>
+
+    </div>
+  </div>
+</div>

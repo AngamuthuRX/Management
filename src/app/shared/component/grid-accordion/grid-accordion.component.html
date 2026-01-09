@@ -1,0 +1,53 @@
+<table mat-table [dataSource]="gridDataSource" multiTemplateDataRows class="mat-elevation-z8">
+
+    <ng-container *ngFor="let col of tableConfig.mainColumns" [matColumnDef]="col.key">
+        <span [class.mat-elevation-z8-hover]="true">
+        <th mat-header-cell *matHeaderCellDef [style.width]="col.width"> {{col.label}} </th>
+        <td mat-cell *matCellDef="let element" [style.width]="col.width">
+
+            <ng-container *ngIf="col.key === 'expand'">
+                <button mat-icon-button
+                    (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                    <mat-icon>{{expandedElement === element ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}}</mat-icon>
+                </button>
+            </ng-container>
+
+            <ng-container *ngIf="col.key !== 'expand'">
+                {{element[col.key]}}
+            </ng-container>
+
+        </td>
+        </span>
+    </ng-container>
+
+    <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+            <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+
+                <div class="inner-table-container">
+                    <table mat-table [dataSource]="element.subList" class="mat-elevation-z2 inner-table">
+                        <ng-container *ngFor="let innerCol of tableConfig.innerColumns" [matColumnDef]="innerCol.key">
+                            <th mat-header-cell *matHeaderCellDef [style.width]="innerCol.width"> {{innerCol.label}}
+                            </th>
+                            <td mat-cell *matCellDef="let sub" [style.width]="innerCol.width"> {{sub[innerCol.key]}}
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="innerDisplayedColumns"></tr>
+                        <tr mat-row (click)="gridRowSelected(row)"
+                            *matRowDef="let row; columns: innerDisplayedColumns;"></tr>
+                    </table>
+                </div>
+
+            </div>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <!-- <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row"
+        (click)="expandedElement = expandedElement === element ? null : element; gridRowSelected(element)"> -->
+    <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row"
+        (click)="gridRowSelected(element)">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>

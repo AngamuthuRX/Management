@@ -13,6 +13,7 @@ import { CalendarModule } from './features/calendar/calendar.module';
 import { UsersModule } from './features/users/users.module';
 import { JwtInterceptor } from './auth/jwt.interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     ProjectsModule,
     ClientsModule,
     CalendarModule,
-    UsersModule
+    UsersModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

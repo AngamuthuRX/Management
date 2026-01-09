@@ -4,31 +4,28 @@
     padding-top: 10px;
 
     .nav-item {
-        // padding: 25px 50px;
         padding: 20px 23px;
         cursor: pointer;
+        display: flex;
+        align-items: center;
 
-        // @media only screen and (max-width: 1300px) {
         @media (max-width: bp.$tablet) {
-            padding: 15px 20px;
+            padding: 18px 18px;
         }
+
 
         &:hover {
             background-color: rgb(1, 38, 69);
+            color: white;
         }
 
         fa-icon {
             margin-right: 20px;
-            font-size: 22px;
+            font-size: 20px;
         }
 
         span {
             display: inline;
-
-            // @media only screen and (max-width: 1300px) {
-            @media (max-width: bp.$tablet) {
-                display: none;
-            }
         }
     }
 }

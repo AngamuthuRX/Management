@@ -1,37 +1,39 @@
+import { LABEL } from "./label";
+
 export const CONFIG = {
     SIDE_MENU: [
         {
-            label: 'Dashboard',
+            label: LABEL.DASHBOARD,
             icon: 'faDashboard',
             route: '/dashboard'
         },
         {
-            label: 'Projects',
+            label: LABEL.PROJECTS,
             icon: 'faMoneyBill',
             route: '/projects'
         },
         {
-            label: 'Clients',
+            label: LABEL.CLIENTS,
             icon: 'faContactBook',
             route: '/clients'
         },
         {
-            label: 'User Management',
+            label: LABEL.USER_MANAGEMENT,
             icon: 'faUsers',
             route: '/user-management'
         },
         {
-            label: 'Calendar',
+            label: LABEL.CALENDAR,
             icon: 'faLocation',
             route: '/calendar'
         },
         {
-            label: 'Reports',
+            label: LABEL.REPORTS,
             icon: 'faChartBar',
             route: '/reports'
         },
         {
-            label: 'Support',
+            label: LABEL.SUPPORT,
             icon: 'faHand',
             route: '/support'
         },
