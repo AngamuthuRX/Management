@@ -9,11 +9,11 @@ import { LayoutModule } from './layout/layout.module';
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { ProjectsModule } from './features/projects/projects.module';
 import { ClientsModule } from './features/clients/clients.module';
-import { CalendarModule } from './features/calendar/calendar.module';
 import { UsersModule } from './features/users/users.module';
 import { JwtInterceptor } from './auth/jwt.interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from './features/calendar/calendar.module';
 
 @NgModule({
   declarations: [

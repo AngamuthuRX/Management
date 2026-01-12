@@ -1,0 +1,52 @@
+.calendar-wrapper {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-container {
+    margin-top: 2px;
+}
+
+.project-strip {
+    border-radius: 4px;
+    padding: 4px 6px;
+    color: white;
+    font-size: 0.75rem;
+    margin-bottom: 2px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+
+    .project-title {
+        font-weight: bold;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .team-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px;
+        margin-top: 3px;
+
+        .person-tag {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 0px 4px;
+            border-radius: 3px;
+            font-size: 0.65rem;
+        }
+    }
+}
+
+// Ensure day cells have enough height to show names
+::ng-deep .cal-month-view .cal-cell-row {
+    min-height: 120px;
+}
+
+.btn-group {
+    button {
+        margin-right: 10px;
+    }
+}
